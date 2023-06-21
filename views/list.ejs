@@ -1,0 +1,39 @@
+<!-- EJS is combination of HTML and simple JS -->
+<!-- <% %> is a Scriplet tag -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">  <!-- In css folder (one folder up in parent directory)-->
+    <title>To-Do List</title>
+</head>
+<body style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+
+    <div class="box" id="heading">
+        <h1><%= listtitle %></h1> 
+    </div>
+
+    <div class="box">
+        <ul>
+            <form action="/delete" method="post">
+                <% for(var i=0; i<NewItem.length; i++) { %>
+                    <div class="item">
+                        <!--onchange Means when checkbox is checked it is submitted-->
+                        <!--assigning just bcuz inorder to know which item should be deleted-->
+                        <input type="checkbox" name="checkbox" value="<%=NewItem[i]._id %>" onchange="this.form.submit()"> 
+                        <p><%= NewItem[i].name %></p>  <!--just printing name fields-->
+                    </div>
+                <% } %>
+                <input type="hidden" name="listName" value="<%= listtitle %>">
+            </form>
+        </ul>
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="New Item" autofocus>
+            <button type="submit" name="list" value="<%= listtitle %>">+</button>
+        </form>
+    </div>
+    
+</body>
+<header><center>Made with ❤️ by Daxrajsinh Jadeja</center></header>
+</html>
