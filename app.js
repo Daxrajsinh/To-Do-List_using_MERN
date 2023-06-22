@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));  //(MUST) Explicitly providing path of public where extra .css, etc Static files are present.
 
-const url = "mongodb+srv://admin-dax:123@cluster0.vu7ydr7.mongodb.net/todoListDB";
+const url = "mongodb://127.0.0.1:27017/ToDoListDB";
 
 //Setting up Mongoose
 mongoose.connect(url, {useNewUrlParser: true}).then((ans) => {
